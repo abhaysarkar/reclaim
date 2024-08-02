@@ -25,7 +25,8 @@ const MainPage = () => {
   const itemsPerPage = 8;
 
   useEffect(() => {
-    axios.get('https://reclaim-env.eba-gpvhizmd.ap-south-1.elasticbeanstalk.com/show-all')
+    axios.get('http://reclaim-env.eba-gpvhizmd.ap-south-1.elasticbeanstalk.com/show-all')
+               
       .then(response => {
         setData(response.data);
         setFilteredData(response.data);
@@ -68,7 +69,7 @@ const MainPage = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    axios.post('https://reclaim-env.eba-gpvhizmd.ap-south-1.elasticbeanstalk.com/add-new-problem', newProblem)
+    axios.post('http://reclaim-env.eba-gpvhizmd.ap-south-1.elasticbeanstalk.com/add-new-problem', newProblem)
       .then(response => {
         setData([...data, response.data]);
         setFilteredData([...data, response.data]);
@@ -87,7 +88,7 @@ const MainPage = () => {
   };
 
   const handleReviseClick = () => {
-    axios.get('https://reclaim-env.eba-gpvhizmd.ap-south-1.elasticbeanstalk.com/get-random-one')
+    axios.get('http://reclaim-env.eba-gpvhizmd.ap-south-1.elasticbeanstalk.com/get-random-one')
       .then(response => {
         setRandomProblem(response.data);
         setShowReviseModal(true);
