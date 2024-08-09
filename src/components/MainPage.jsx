@@ -25,7 +25,7 @@ const MainPage = () => {
   const itemsPerPage = 8;
 
   useEffect(() => {
-    axios.get('http://localhost:8080/show-all')
+    axios.get('https://reclaim-6a6551abbe8b.herokuapp.com/show-all')
                
       .then(response => {
         setData(response.data);
@@ -69,7 +69,7 @@ const MainPage = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:8080/add-new-problem', newProblem)
+    axios.post('https://reclaim-6a6551abbe8b.herokuapp.com/add-new-problem', newProblem)
       .then(response => {
         setData([...data, response.data]);
         setFilteredData([...data, response.data]);
@@ -88,7 +88,7 @@ const MainPage = () => {
   };
 
   const handleReviseClick = () => {
-    axios.get('http://localhost:8080/get-random-one')
+    axios.get('https://reclaim-6a6551abbe8b.herokuapp.com/get-random-one')
       .then(response => {
         setRandomProblem(response.data);
         setShowReviseModal(true);
